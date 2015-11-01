@@ -11,6 +11,9 @@ namespace projecteuler
         {
             Console.WriteLine("Problem 1:");
             Console.WriteLine(Problem1());
+
+            Console.WriteLine("Problem2");
+            Console.WriteLine(Problem2(1,2,0));
         }
         
 
@@ -30,6 +33,22 @@ namespace projecteuler
                 }
             }
             return sum;
+        }
+
+        public static int Problem2(int fib1, int fib2, int sum)
+        {
+            if (fib1 >= 4000000 || fib2 >= 4000000)
+            {
+                return sum;
+            }
+            else
+            {
+                if (fib2 % 2 == 0)
+                {
+                    sum += fib2;
+                }
+                return Problem2(fib2, (fib1 + fib2), sum);
+            }
         }
     }
 }
